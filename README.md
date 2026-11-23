@@ -114,6 +114,11 @@ Modifications apportées au boilerplate :
 - **Configuration** : `.env` devient facultatif. S'il est absent, l'application lit les variables
   d'environnement du conteneur, ce qui permet le démarrage en une commande. Les variables manquantes
   sont détectées au démarrage et journalisées.
+- **Séparation des rôles des deux jetons** : `PATCH` n'exige plus la présence du cookie
+  `refresh_token`. Ce contrôle, hérité du boilerplate, ne vérifiait pas à qui appartenait le cookie
+  et ne prouvait donc rien ; il renvoyait de plus un `400` pour un problème d'authentification, et
+  `DELETE` ne l'appliquait pas. L'autorisation repose désormais uniquement sur l'_access token_, le
+  _refresh token_ servant seulement à en obtenir un nouveau.
 - **Nettoyage** : les ébauches inutilisées du boilerplate ont été retirées (route `PUT`, qui ne
   renvoyait aucune réponse, et méthode `setAll()` jamais appelée). `PUT /api/user/{id}` répond
   désormais **405**, ce qui est le comportement correct pour une méthode non gérée.

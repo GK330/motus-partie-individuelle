@@ -81,15 +81,8 @@ class UserController
     public function update($id): void
     {
         try {
-            $refreshToken = $_COOKIE['refresh_token'] ?? null;
-
-            if (!$refreshToken) {
-                sendResponseCustom('No refresh token found', null, 'Error', 400);
-                exit(1);
-            }
-
             if (!$this->user->findById($id)) {
-                sendResponseCustom('User not found', null, 'User not found', 404);
+                sendResponseCustom('User not found', null, 'Error', 404);
                 exit(1);
             }
 
