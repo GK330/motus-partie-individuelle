@@ -7,6 +7,16 @@ Ce dépôt correspond à la partie **« 3. Travail préalable - Individuel »** 
 d'un compte utilisateur (authentification, création, modification, suppression) depuis un client jQuery,
 avec rafraîchissement automatique du jeton d'accès.
 
+## 📄 Dossier écrit
+
+**[Dossier_oral_partie_individuelle.pdf](./Dossier_oral_partie_individuelle.pdf)** — à la racine du dépôt.
+
+Il contient les deux livrables demandés au point 5.1 du sujet :
+
+1. la présentation de la méthode AJAX ;
+2. le rôle de l'_access token_ et du _refresh token_, suivi du schéma des échanges entre le
+   navigateur, l'API et la base de données.
+
 ## Démarrage rapide
 
 Il n'y a rien à configurer : une seule commande suffit, à la racine du projet.
@@ -168,6 +178,7 @@ Deux tables : `user` (pseudo et email uniques) et `refresh_token`, reliée à `u
 ## Structure du projet
 
 ```console
+├── Dossier_oral_partie_individuelle.pdf
 ├── public
 │   ├── assets              # jQuery 3.7.1 et Pico CSS, servis en local
 │   ├── client.php          # client jQuery (formulaires + appels AJAX)
