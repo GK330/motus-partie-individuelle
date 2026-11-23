@@ -7,9 +7,9 @@ Ce dépôt correspond à la partie **« 3. Travail préalable - Individuel »** 
 d'un compte utilisateur (authentification, création, modification, suppression) depuis un client jQuery,
 avec rafraîchissement automatique du jeton d'accès.
 
-## 📄 Dossier écrit
+## 📄 Rapport du TP
 
-**[Dossier_oral_partie_individuelle.pdf](./Dossier_oral_partie_individuelle.pdf)** — à la racine du dépôt.
+**[Rapport_TP_individuel.pdf](./Rapport_TP_individuel.pdf)** — à la racine du dépôt.
 
 Il contient les deux livrables demandés au point 5.1 du sujet :
 
@@ -183,7 +183,7 @@ Deux tables : `user` (pseudo et email uniques) et `refresh_token`, reliée à `u
 ## Structure du projet
 
 ```console
-├── Dossier_oral_partie_individuelle.pdf
+├── Rapport_TP_individuel.pdf
 ├── public
 │   ├── assets              # jQuery 3.7.1 et Pico CSS, servis en local
 │   ├── client.php          # client jQuery (formulaires + appels AJAX)
