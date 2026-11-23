@@ -1,0 +1,37 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME:-native_php_restful_api}
+      DB_USER: ${DB_USER:-app}
+      DB_PASS: ${DB_PASS:-app_password}
+      JWT_SECRET: ${JWT_SECRET:-my_secret_key_not_really_so_secret_please_change_me}
+      JWT_TTL: ${JWT_TTL:-300}
+      JWT_REFRESH_TTL: ${JWT_REFRESH_TTL:-604800}
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-native_php_restful_api}
+      MYSQL_USER: ${DB_USER:-app}
+      MYSQL_PASSWORD: ${DB_PASS:-app_password}
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - ./stuff/native_php_restful_api.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  db_data:

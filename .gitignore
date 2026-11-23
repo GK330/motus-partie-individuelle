@@ -1,0 +1,13 @@
+# Configuration locale (voir .env.example)
+.env
+
+# Journalisation
+logs/*.log
+
+# Fichiers systeme
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
